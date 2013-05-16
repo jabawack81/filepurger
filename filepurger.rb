@@ -1,9 +1,9 @@
 #########################################################
 #							#
-# Autore     :	Fabbri Paolo				#
-# Descrizione:	un semplice script che confronta	#
-#		il contenuto di due file ed elimina	#
-#		dal file 2 le righe presenti nel file1	#
+# Author     :	Jabawack81				#
+# Descrizione:	A ruby script to compare two file 	#
+#		and delete from one file the lines	#
+#		already present in the other file	#
 #							#
 #########################################################
 
