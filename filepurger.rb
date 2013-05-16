@@ -8,8 +8,7 @@
 #########################################################
 
 def filetoarray(nomefile)
-	a = IO.readlines(nomefile)
-	a
+	IO.readlines(nomefile)
 end
 
 def askforfile(desc)
@@ -26,14 +25,15 @@ end
 
 file1 = askforfile("primo")
 file2 = askforfile("secondo")
-arrayfile1 = filetoarray(file1)
-arrayfile2 = filetoarray(file2)
-arrayfile1.each do | emailfile1 |
-	arrayfile2.delete(emailfile1)
+arrayfilee1 = filetoarray(file1)
+arrayfilee2 = filetoarray(file2)
+
+arrayfile1.each do | linefile1 |
+	arrayfile2.delete(linefile1)
 end
-#IO.write("purged"+file2,  arrayfile2)
-open("purged"+ file2, 'a') { |f|
-	arrayfile2.each do | emailfile2 |
-		f.puts emailfile2
+
+open(file2, 'a') do |f|
+	arrayfile2.each do | linefile2 |
+		f.puts linefile2
 	end
-}
+end
