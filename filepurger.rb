@@ -1,7 +1,7 @@
 #########################################################
 #							#
 # Author     :	Jabawack81				#
-# Descrizione:	A ruby script to compare two file 	#
+# Descrizione:	A ruby script to compare two file	#
 #		and delete from one file the lines	#
 #		already present in the other file	#
 #							#
@@ -25,14 +25,13 @@ end
 
 file1 = askforfile("primo")
 file2 = askforfile("secondo")
-arrayfilee1 = filetoarray(file1)
-arrayfilee2 = filetoarray(file2)
-
+arrayfile1 = filetoarray(file1)
+arrayfile2 = filetoarray(file2)
 arrayfile1.each do | linefile1 |
 	arrayfile2.delete(linefile1)
 end
-
-open(file2, 'a') do |f|
+#IO.write("purged"+file2,  arrayfile2)
+open("purged"+ file2, 'w') do |f|
 	arrayfile2.each do | linefile2 |
 		f.puts linefile2
 	end
