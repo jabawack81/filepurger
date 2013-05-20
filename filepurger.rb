@@ -8,16 +8,29 @@
 #########################################################
 
 def filetoarray(nomefile)
-	IO.readlines(nomefile)
+#	IO.readlines(nomefile)
+	a = Array.new
+	File.open(nomefile).each do |line|
+		a << line.gsub!(/\s+/, '').downcase
+	end
+a
+#puts  nomefile
+#print a
 end
 
 def askforfile(desc)
-	print "nome del " + desc + " file   : "
+	print "nome del " + desc + " file   (exit per uscire): "
 	file = gets.chop
+	if file == "exit"
+		exit
+	end
 	if File.exist?(file) == false
 		until File.exist?(file) do
-			print "file non trovato inserire un nuovo file [" + file + "]  : "
+			print "file non trovato inserire un nuovo file [" + file + "]  (exit per uscire): "
 		        file = gets.chop
+			if file == "exit"
+				exit
+			end
 		end
 	end
 	file
