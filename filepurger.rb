@@ -10,12 +10,12 @@
 def filetoarray(nomefile)
 #	IO.readlines(nomefile)
 	a = Array.new
-	File.open(nomefile).each do |line|
+	File.open(nomefile, mode="rt").each do |line|
 		a << line.gsub!(/\s+/, '').downcase
 	end
-a
-#puts  nomefile
-#print a
+#	puts  nomefile
+#	puts a
+	a
 end
 
 def askforfile(desc)
@@ -40,9 +40,15 @@ file1 = askforfile("primo")
 file2 = askforfile("secondo")
 arrayfile1 = filetoarray(file1)
 arrayfile2 = filetoarray(file2)
+c = 1
 arrayfile1.each do | linefile1 |
 	arrayfile2.delete(linefile1)
+	if c%100==0
+		print "."
+	end
+	c = c+1
 end
+puts "finito"
 #IO.write("purged"+file2,  arrayfile2)
 open("purged"+ file2, 'w') do |f|
 	arrayfile2.each do | linefile2 |
