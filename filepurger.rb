@@ -32,7 +32,10 @@ def askforfile(desc)
 	end
 	file
 end
-
+if RUBY_VERSION <= "1.9"
+  puts "per eseguire questo script è necessaria una versione ddi Ruby dalla 1,9 o superiore aggiorna Ruby"
+  exit
+end
 file1 = askforfile("primo")
 file2 = askforfile("secondo")
 arrayfile1 = filetoarray(file1)
